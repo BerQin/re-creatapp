@@ -1,6 +1,6 @@
 {
   "name": "re-creatapp",
-  "version": "1.1.6",
+  "version": "1.1.9",
   "description": "用于解决react的快速构建和路由解决，其他的插件需自行配置安装，暴露出webpack以及其他各方面的接口，方便更改",
   "main": "index.js",
   "scripts": {
