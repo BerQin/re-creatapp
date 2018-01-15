@@ -11,17 +11,18 @@ import {
 
 const rootRoute = AutoRouter({
   path:'/',
-  exact: true,
   indexRoute:{
     replace:'/home',
   },
   component:asyncComponent(() => import('./home.js')),
+  // component_404:asyncComponent(() => import('./views/nomatch/home.js')),
   routes:[
     require('./views/about'),
-    require('./views/home')
+    require('./views/linke'),
+    require('./views/nomatch')
   ]
 });
-console.log(rootRoute, 'index');
+
 ReactDOM.render(
   <Router>{rootRoute}</Router>,
   document.getElementById('root')

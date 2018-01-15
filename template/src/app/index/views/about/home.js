@@ -9,7 +9,7 @@ export default class AboutView extends Component {
     return (
       <div className="app-about">
         <h2>About</h2>
-        <p><Link to="/about/linke" >Linke</Link></p>
+        <p><Link to="/home/linke" >Linke</Link></p>
       </div>
     );
   }

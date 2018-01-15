@@ -8,8 +8,8 @@ export default class HomeView extends Component {
   render() {
     return (
       <div className="app-home">
-        <h2>About</h2>
-        <p><Link to="/about/linke" >Linke</Link></p>
+        <h2>Home</h2>
+        <p><Link to="/about" >Linke</Link></p>
       </div>
     );
   }
