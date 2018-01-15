@@ -15,12 +15,13 @@ module.exports = {
   // 模块解析
   module: {
     rules: [{
-      test: /(\.js|\.jsx)$/,
+      test: /\.js$/,
       exclude: /node_modules/,
       use: {
         loader: 'babel-loader',
         options: {
-          presets: ['es2015', 'react']
+          presets: ['es2015', 'react'],
+          plugins: ['syntax-dynamic-import']
         }
       }
     },
