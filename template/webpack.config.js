@@ -46,7 +46,7 @@ module.exports = {
   plugins:[],
   // 服务配置
   devServer: {
-    port: 8080,
+    port: 9090,
     historyApiFallback: {
       index: '/public/index.html',
       rewrites: [

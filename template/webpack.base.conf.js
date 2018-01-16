@@ -1,4 +1,10 @@
 var path = require('path')
+var entryDir = path.join(__dirname, 'build');
+
+function toApp(relativePath) {
+  return path.resolve(__dirname, 'src/app', relativePath);
+}
+
 module.exports = {
   //入口
   entry:{
@@ -6,20 +12,29 @@ module.exports = {
   },
   // 出口
   output: {
-    publicPath: '/myjsreact/',
-    path: '/myjsreact/build',
+    publicPath: entryDir,
+    path: entryDir,
     chunkFilename: '[id].chunk.js',
     filename: '[name].js'
   },
-  // 模块
+  resolve: {
+    extensions: [".tsx", ".ts", ".js", ".css", ".less", ".scss", "html"],
+    alias: {
+      components: toApp('components'),
+      index: toApp('index'),
+      serve: toApp('serve')
+    }
+  },
+  // 模块解析
   module: {
     rules: [{
-      test: /(\.js|\.jsx)$/,
+      test: /\.js$/,
       exclude: /node_modules/,
       use: {
         loader: 'babel-loader',
         options: {
-          presets: ['es2015', 'react']
+          presets: ['es2015', 'react'],
+          plugins: ['syntax-dynamic-import']
         }
       }
     },
@@ -39,5 +54,18 @@ module.exports = {
       test: /\.(woff|woff2|eot|ttf|otf)$/,
       use: ['file-loader']
     }]
-  }
+  },
+  devServer: {
+    compress: true,
+    disableHostCheck: true,
+    historyApiFallback: {
+      index: '/public/index.html',
+      rewrites: [
+        { from: /\/index/, to: '/index.html' },
+      ]
+    },
+    https: false,
+    noInfo: false,
+    port: 8080
+  },
 }

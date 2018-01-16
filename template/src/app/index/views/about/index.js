@@ -3,6 +3,9 @@ import asyncComponent from '../../serve/async/index';
 
 export default AutoRouterConfig({
   path: 'about',
-  exact:true,
+  exact:false,
   component:asyncComponent(() => import('./home.js')),
+  routes:[
+    require('./abouttext'),
+  ]
 });

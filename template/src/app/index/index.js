@@ -14,12 +14,12 @@ const rootRoute = AutoRouter({
   indexRoute:{
     replace:'/home',
   },
+  exact: false,
   component:asyncComponent(() => import('./home.js')),
-  // component_404:asyncComponent(() => import('./views/nomatch/home.js')),
+  component_404:asyncComponent(() => import('./views/nomatch/home.js')),
   routes:[
     require('./views/about'),
-    require('./views/linke'),
-    require('./views/nomatch')
+    require('./views/linke')
   ]
 });
 
