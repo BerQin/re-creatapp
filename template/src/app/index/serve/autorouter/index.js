@@ -40,10 +40,12 @@ const blitem = (routes, path, component_404) => {
       Children.push(item);
     }
   }
-  Children.push({
-    component:component_404,
-    routes:[]
-  });
+  if (component_404) {
+    Children.push({
+      component:component_404,
+      routes:[]
+    });
+  }
   return Children;
 }
 

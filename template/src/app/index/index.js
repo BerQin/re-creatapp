@@ -16,7 +16,7 @@ const rootRoute = AutoRouter({
   },
   exact: false,
   component:asyncComponent(() => import('./home.js')),
-  component_404:asyncComponent(() => import('./views/nomatch/home.js')),
+  // component_404:asyncComponent(() => import('./views/nomatch/home.js')),
   routes:[
     require('./views/about'),
     require('./views/linke')
