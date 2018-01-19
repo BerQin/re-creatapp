@@ -1,5 +1,5 @@
 var path = require('path')
-var entryDir = path.join(__dirname, 'src/app');
+// var entryDir = path.join(__dirname);
 module.exports = {
   //入口
   entry:{
@@ -7,8 +7,8 @@ module.exports = {
   },
   // 出口
   output: {
-    publicPath: '/build/',
-    path: '/build',
+    publicPath: '/',
+    path: '/',
     chunkFilename: '[id].chunk.js',
     filename: '[name].js'
   },

@@ -1,7 +1,5 @@
 var path = require('path')
-var entryDir = path.join(__dirname, 'diest/build');
-var public = path.join(__dirname, 'diest');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+var entryDir = path.join(__dirname, 'build');
 
 function toApp(relativePath) {
   return path.resolve(__dirname, 'src/app', relativePath);
@@ -14,8 +12,8 @@ module.exports = {
   },
   // 出口
   output: {
-    publicPath: '/',
-    path: public,
+    publicPath: entryDir,
+    path: entryDir,
     chunkFilename: '[id].chunk.js',
     filename: '[name].js'
   },
@@ -57,16 +55,6 @@ module.exports = {
       use: ['file-loader']
     }]
   },
-  plugins: [
-    new CopyWebpackPlugin([{
-      from: 'public/*',
-      toType:'file',
-      flatten:true,
-    },{
-      from: 'src/images/*',
-      toType:'file',
-    }])
-  ],
   devServer: {
     compress: true,
     disableHostCheck: true,

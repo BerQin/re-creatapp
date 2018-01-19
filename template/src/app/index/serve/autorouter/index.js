@@ -85,7 +85,7 @@ const AutoRouter = function(Config, isConfig){
     exact: exact,
     routes: blitem(childrenRoutes, path, component_404)
   });
-
+ console.log(Rroutes,666);
   let routerDom = null;
   if (!isConfig) {
     routerDom = Rroutes.map((route, i) => (
